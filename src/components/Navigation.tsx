@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Target } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,11 +18,14 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "How It Works", href: "#how-it-works" },
-    { name: "For Talent", href: "#for-talent" },
-    { name: "For Startups", href: "#for-startups" },
-    { name: "Founders", href: "#founders" },
+    { name: "About", to: "/about" },
+    { name: "How It Works", to: "/how-it-works" },
+    { name: "TTET", to: "/ttet" },
+    { name: "Success Stories", to: "/success-stories" },
+    { name: "Blog", to: "/blog" },
+    { name: "Pricing", to: "/pricing" },
+    { name: "FAQ", to: "/faq" },
+    { name: "Contact", to: "/contact" },
   ];
 
   return (
@@ -33,30 +39,37 @@ const Navigation = () => {
       <div className="container px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-2 group">
             <span className="text-3xl font-bold">
               <span className="text-secondary">Talen</span>
               <span className="text-primary">Tr</span>
               <span className="text-secondary">o</span>
               <span className="text-primary">ve</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link, index) => (
-              <a
+              <Link
                 key={index}
-                href={link.href}
-                className="text-foreground hover:text-primary transition-smooth font-medium"
+                to={link.to}
+                className="text-foreground hover:text-primary transition-smooth font-medium text-sm"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="w-10 h-10 rounded-lg hover:bg-muted transition-smooth flex items-center justify-center"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
             <Button variant="ghost" className="font-semibold">
               Sign In
             </Button>
@@ -80,16 +93,31 @@ const Navigation = () => {
           <div className="md:hidden py-6 border-t border-border bg-background/95 backdrop-blur-lg">
             <div className="flex flex-col gap-4">
               {navLinks.map((link, index) => (
-                <a
+                <Link
                   key={index}
-                  href={link.href}
+                  to={link.to}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-foreground hover:text-primary transition-smooth font-medium py-2"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <div className="flex flex-col gap-3 pt-4 border-t border-border">
+                <Button
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  variant="outline"
+                  className="w-full"
+                >
+                  {theme === "dark" ? (
+                    <>
+                      <Sun className="w-4 h-4 mr-2" /> Light Mode
+                    </>
+                  ) : (
+                    <>
+                      <Moon className="w-4 h-4 mr-2" /> Dark Mode
+                    </>
+                  )}
+                </Button>
                 <Button variant="ghost" className="font-semibold w-full">
                   Sign In
                 </Button>
