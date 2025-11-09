@@ -41,12 +41,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center shadow-primary">
-                <Target className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold gradient-primary bg-clip-text text-transparent">
-                Talentrove
+            <div className="flex items-center gap-2">
+              <span className="text-2xl font-bold">
+                <span className="text-secondary">Talen</span>
+                <span className="text-primary">Tr</span>
+                <span className="text-secondary">o</span>
+                <span className="text-primary">ve</span>
               </span>
             </div>
             <p className="text-muted-foreground leading-relaxed">

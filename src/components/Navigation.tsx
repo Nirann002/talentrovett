@@ -33,12 +33,12 @@ const Navigation = () => {
       <div className="container px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center shadow-primary group-hover:scale-110 transition-smooth">
-              <Target className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-2xl font-bold gradient-primary bg-clip-text text-transparent">
-              Talentrove
+          <a href="#" className="flex items-center gap-2 group">
+            <span className="text-3xl font-bold">
+              <span className="text-secondary">Talen</span>
+              <span className="text-primary">Tr</span>
+              <span className="text-secondary">o</span>
+              <span className="text-primary">ve</span>
             </span>
           </a>
 
