@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const FoundersSection = () => {
@@ -11,6 +11,7 @@ const FoundersSection = () => {
       initials: "NS",
       color: "gradient-primary",
       bio: "Passionate about scalable systems and clean code. Building the backend that powers Talentrove's matching engine.",
+      email: "niranjansaravanan10296@gmail.com",
     },
     {
       name: "U.S. Sanjeevan",
@@ -19,6 +20,7 @@ const FoundersSection = () => {
       initials: "US",
       color: "gradient-secondary",
       bio: "Creating beautiful, intuitive interfaces that make talent discovery effortless and engaging.",
+      email: "ussanjeevan007@gmail.com",
     },
     {
       name: "Sai Vigneshwar.M",
@@ -27,6 +29,7 @@ const FoundersSection = () => {
       initials: "SV",
       color: "bg-accent",
       bio: "Ensuring data security and integrity. Protecting user information with enterprise-grade security measures.",
+      email: null,
     },
   ];
 
@@ -76,14 +79,17 @@ const FoundersSection = () => {
                 </p>
 
                 {/* Social Links */}
-                <div className="flex justify-center gap-4 pt-4">
-                  <button className="w-10 h-10 rounded-lg bg-muted hover:bg-primary hover:text-white transition-smooth flex items-center justify-center">
-                    <Linkedin className="w-5 h-5" />
-                  </button>
-                  <button className="w-10 h-10 rounded-lg bg-muted hover:bg-primary hover:text-white transition-smooth flex items-center justify-center">
-                    <Mail className="w-5 h-5" />
-                  </button>
-                </div>
+                {founder.email && (
+                  <div className="flex justify-center pt-4">
+                    <a 
+                      href={`mailto:${founder.email}`}
+                      className="w-10 h-10 rounded-lg bg-muted hover:bg-primary hover:text-white transition-smooth flex items-center justify-center"
+                      aria-label="Send email"
+                    >
+                      <Mail className="w-5 h-5" />
+                    </a>
+                  </div>
+                )}
               </div>
             </Card>
           ))}
