@@ -41,10 +41,10 @@ const About = () => {
     Icon: LucideIcon;
     color: string;
   }> = [
-    { year: "2023", event: "Met at MVM in 11th Grade", description: "Three students from different backgrounds crossed paths at MVM Chetpet during 11th grade", Icon: Users, color: "from-blue-500 to-cyan-500" },
-    { year: "2024", event: "School Project Ideation", description: "Brainstormed and conceptualized Talentrove as our ambitious school project", Icon: Lightbulb, color: "from-purple-500 to-pink-500" },
-    { year: "2025", event: "Prototype Development & Launch", description: "Built and launched our working prototype, turning our vision into reality", Icon: Target, color: "from-orange-500 to-red-500" },
-    { year: "Future", event: "Scaling & Empowering Talents", description: "Growing the platform to connect thousands of talents with opportunities", Icon: TrendingUp, color: "from-green-500 to-emerald-500" }
+    { year: "2023", event: "Met at MVM in 11th Grade", description: "Three students from the computer science group crossed paths at MVM Chetpet during 11th grade in 2023", Icon: Users, color: "from-blue-500 to-cyan-500" },
+    { year: "2024", event: "Ideation, Prototype & First Pitch", description: "Conceptualized Talentrove, built our first prototype, pitched it... and failed. But failure taught us resilience.", Icon: Lightbulb, color: "from-purple-500 to-pink-500" },
+    { year: "2025", event: "College Comeback & Real Build", description: "Back stronger during college. Currently building the actual platform that will change how talent meets opportunity.", Icon: Target, color: "from-orange-500 to-red-500" },
+    { year: "Future", event: "Scaling & Empowering Talents", description: "Growing the platform to connect thousands of talents with opportunities worldwide", Icon: TrendingUp, color: "from-green-500 to-emerald-500" }
   ];
 
   const values: Array<{
