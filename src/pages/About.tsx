@@ -35,11 +35,10 @@ const About = () => {
   ];
 
   const timeline = [
-    { year: "2020", event: "Met at MVM Chetpet", icon: Users },
-    { year: "2021-2024", event: "College Projects & Collaboration", icon: Lightbulb },
-    { year: "2024", event: "Talentrove Concept Born", icon: Target },
-    { year: "2025", event: "Platform Prototype Development", icon: TrendingUp },
-    { year: "2025", event: "Launch & Empowering Talents", icon: Heart }
+    { year: "2023", event: "Met at MVM in 11th Grade", description: "Three students from different backgrounds crossed paths at MVM Chetpet during 11th grade", icon: Users, color: "from-blue-500 to-cyan-500" },
+    { year: "2024", event: "School Project Ideation", description: "Brainstormed and conceptualized Talentrove as our ambitious school project", icon: Lightbulb, color: "from-purple-500 to-pink-500" },
+    { year: "2025", event: "Prototype Development & Launch", description: "Built and launched our working prototype, turning our vision into reality", icon: Target, color: "from-orange-500 to-red-500" },
+    { year: "Future", event: "Scaling & Empowering Talents", description: "Growing the platform to connect thousands of talents with opportunities", icon: TrendingUp, color: "from-green-500 to-emerald-500" }
   ];
 
   const values = [
@@ -157,26 +156,91 @@ const About = () => {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 px-4">
-        <div className="container max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">Our Journey</h2>
-          <div className="space-y-8">
-            {timeline.map((item, index) => (
-              <div key={index} className="flex gap-6 items-start hover-lift">
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center text-white shadow-primary">
-                    <item.icon className="w-6 h-6" />
+      <section className="py-20 px-4 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
+        
+        <div className="container max-w-5xl mx-auto relative z-10">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-bold mb-4 animate-fade-in">
+              Our <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Journey</span>
+            </h2>
+            <p className="text-xl text-muted-foreground animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              From classmates to co-founders
+            </p>
+          </div>
+          
+          <div className="relative">
+            {/* Vertical line */}
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-secondary to-accent transform -translate-x-1/2 opacity-20"></div>
+            
+            <div className="space-y-16">
+              {timeline.map((item, index) => (
+                <div 
+                  key={index} 
+                  className={`relative flex items-center gap-8 ${
+                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  } flex-col`}
+                  style={{ 
+                    animation: 'fade-in 0.6s ease-out forwards',
+                    animationDelay: `${index * 0.2}s`,
+                    opacity: 0
+                  }}
+                >
+                  {/* Timeline dot with animated ring */}
+                  <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 z-20">
+                    <div className="relative">
+                      {/* Pulsing rings */}
+                      <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${item.color} opacity-20 animate-ping`} style={{ animationDuration: '2s' }}></div>
+                      <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${item.color} opacity-40 animate-pulse`}></div>
+                      
+                      {/* Main icon container */}
+                      <div className={`relative w-16 h-16 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center shadow-2xl transform transition-all duration-300 hover:scale-110 hover:rotate-12`}>
+                        <item.icon className="w-8 h-8 text-white" />
+                      </div>
+                    </div>
                   </div>
-                  {index < timeline.length - 1 && (
-                    <div className="w-0.5 h-16 bg-gradient-primary opacity-30 my-2"></div>
-                  )}
+                  
+                  {/* Content card */}
+                  <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right md:pr-16' : 'md:text-left md:pl-16'} pl-20 md:pl-0`}>
+                    <Card className="p-6 hover-lift shadow-xl border-2 backdrop-blur-sm bg-card/50 group hover:shadow-2xl transition-all duration-500 hover:scale-105">
+                      <CardContent className="p-4 space-y-3">
+                        {/* Year badge */}
+                        <div className={`inline-block px-4 py-1 rounded-full bg-gradient-to-r ${item.color} text-white font-bold text-sm shadow-lg`}>
+                          {item.year}
+                        </div>
+                        
+                        {/* Event title */}
+                        <h3 className="text-2xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
+                          {item.event}
+                        </h3>
+                        
+                        {/* Description */}
+                        <p className="text-muted-foreground leading-relaxed">
+                          {item.description}
+                        </p>
+                        
+                        {/* Decorative line */}
+                        <div className={`h-1 w-20 bg-gradient-to-r ${item.color} rounded-full ${index % 2 === 0 ? 'md:ml-auto' : ''} group-hover:w-full transition-all duration-500`}></div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  
+                  {/* Spacer for alternating layout */}
+                  <div className="hidden md:block w-5/12"></div>
                 </div>
-                <div className="flex-1 pb-8">
-                  <p className="text-primary font-bold text-lg mb-1">{item.year}</p>
-                  <p className="text-xl font-semibold">{item.event}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+          
+          {/* Bottom decoration */}
+          <div className="mt-20 text-center">
+            <div className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-primary via-secondary to-accent text-white font-semibold shadow-xl animate-pulse">
+              🚀 The Journey Continues...
+            </div>
           </div>
         </div>
       </section>
