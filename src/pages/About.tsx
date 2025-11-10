@@ -166,75 +166,79 @@ const About = () => {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 px-4 relative overflow-hidden">
+      <section className="py-20 px-4 relative overflow-hidden bg-gradient-to-b from-background via-muted/20 to-background">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         </div>
         
-        <div className="container max-w-5xl mx-auto relative z-10">
+        <div className="container max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-5xl font-bold mb-4 animate-fade-in">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">
               Our <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Journey</span>
             </h2>
-            <p className="text-xl text-muted-foreground animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-4">
               From classmates to co-founders
+            </p>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Three friends from MVM Chetpet's computer science group who dared to dream big, failed, learned, and came back stronger.
             </p>
           </div>
           
           <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-secondary to-accent transform -translate-x-1/2 opacity-20"></div>
+            {/* Vertical timeline line */}
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 via-orange-500 to-green-500 transform -translate-x-1/2 opacity-30"></div>
             
-            <div className="space-y-16">
+            <div className="space-y-24 md:space-y-32">
               {timeline.map((item, index) => (
                 <div 
                   key={index} 
                   className={`relative flex items-center gap-8 ${
                     index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                  } flex-col`}
-                  style={{ 
-                    animation: 'fade-in 0.6s ease-out forwards',
-                    animationDelay: `${index * 0.2}s`,
-                    opacity: 0
-                  }}
+                  } flex-col animate-fade-in`}
                 >
-                  {/* Timeline dot with animated ring */}
+                  {/* Timeline dot with animated rings */}
                   <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 z-20">
                     <div className="relative">
-                      {/* Pulsing rings */}
-                      <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${item.color} opacity-20 animate-ping`} style={{ animationDuration: '2s' }}></div>
-                      <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${item.color} opacity-40 animate-pulse`}></div>
+                      {/* Outer pulsing ring */}
+                      <div className={`absolute -inset-4 rounded-full bg-gradient-to-r ${item.color} opacity-20 animate-ping`} style={{ animationDuration: '3s' }}></div>
+                      
+                      {/* Middle pulse ring */}
+                      <div className={`absolute -inset-2 rounded-full bg-gradient-to-r ${item.color} opacity-30 animate-pulse`}></div>
                       
                       {/* Main icon container */}
-                      <div className={`relative w-16 h-16 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center shadow-2xl transform transition-all duration-300 hover:scale-110 hover:rotate-12`}>
-                        <item.Icon className="w-8 h-8 text-white" />
+                      <div className={`relative w-20 h-20 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center shadow-2xl transform transition-all duration-500 hover:scale-125 hover:rotate-12 border-4 border-background`}>
+                        <item.Icon className="w-10 h-10 text-white" strokeWidth={2.5} />
                       </div>
                     </div>
                   </div>
                   
                   {/* Content card */}
-                  <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right md:pr-16' : 'md:text-left md:pl-16'} pl-20 md:pl-0`}>
-                    <Card className="p-6 hover-lift shadow-xl border-2 backdrop-blur-sm bg-card/50 group hover:shadow-2xl transition-all duration-500 hover:scale-105">
-                      <CardContent className="p-4 space-y-3">
+                  <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right md:pr-20' : 'md:text-left md:pl-20'} pl-24 md:pl-0`}>
+                    <Card className="relative overflow-hidden hover-lift shadow-2xl border-2 group hover:border-primary/50 transition-all duration-500 hover:scale-105 bg-card/80 backdrop-blur-sm">
+                      {/* Card gradient overlay */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+                      
+                      <CardContent className="p-8 relative z-10 space-y-4">
                         {/* Year badge */}
-                        <div className={`inline-block px-4 py-1 rounded-full bg-gradient-to-r ${item.color} text-white font-bold text-sm shadow-lg`}>
+                        <div className={`inline-block px-6 py-2 rounded-full bg-gradient-to-r ${item.color} text-white font-bold text-lg shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
                           {item.year}
                         </div>
                         
                         {/* Event title */}
-                        <h3 className="text-2xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
+                        <h3 className="text-3xl font-bold text-foreground leading-tight">
                           {item.event}
                         </h3>
                         
                         {/* Description */}
-                        <p className="text-muted-foreground leading-relaxed">
+                        <p className="text-lg text-muted-foreground leading-relaxed">
                           {item.description}
                         </p>
                         
-                        {/* Decorative line */}
-                        <div className={`h-1 w-20 bg-gradient-to-r ${item.color} rounded-full ${index % 2 === 0 ? 'md:ml-auto' : ''} group-hover:w-full transition-all duration-500`}></div>
+                        {/* Decorative expanding line */}
+                        <div className={`h-1.5 w-24 bg-gradient-to-r ${item.color} rounded-full ${index % 2 === 0 ? 'md:ml-auto' : ''} group-hover:w-full transition-all duration-700 shadow-lg`}></div>
                       </CardContent>
                     </Card>
                   </div>
@@ -246,9 +250,35 @@ const About = () => {
             </div>
           </div>
           
+          {/* Story summary card */}
+          <div className="mt-32">
+            <Card className="p-8 md:p-12 shadow-2xl border-2 bg-gradient-to-br from-card to-muted/20">
+              <CardContent className="space-y-6">
+                <h3 className="text-3xl font-bold text-center mb-6">The Story Behind The Vision</h3>
+                <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
+                  <p className="text-lg leading-relaxed">
+                    In <span className="font-bold text-primary">2023</span>, three students from the computer science group at <span className="font-bold">MVM Chetpet</span> became friends during their 11th grade. We bonded over late-night coding sessions, tech dreams, and a shared frustration: seeing talented people around us struggle to find opportunities simply because they lacked the "right" degrees.
+                  </p>
+                  <p className="text-lg leading-relaxed">
+                    Fast forward to <span className="font-bold text-secondary">2024</span>, we decided to do something about it. We brainstormed, prototyped, and pitched <span className="font-bold">Talentrove</span> as our school project. We were excited, confident... and we <span className="font-bold text-destructive">failed</span>. The pitch didn't land. The prototype had issues. It hurt, but it taught us something crucial: <span className="italic">great ideas need great execution</span>.
+                  </p>
+                  <p className="text-lg leading-relaxed">
+                    In <span className="font-bold text-accent">2025</span>, now in college and armed with the lessons from our failure, we came back stronger. We're rebuilding Talentrove from the ground up - not just as a school project, but as a real platform that will revolutionize how talent meets opportunity. This time, we're building it right.
+                  </p>
+                  <p className="text-xl font-bold text-center text-foreground italic py-6 border-y border-border">
+                    "Uppu Thinna Thanni Kudi" - நீங்கள் செய்த நல்ல காரியத்திற்கு நீங்கள் வெகுமதி பெறுவீர்கள்
+                  </p>
+                  <p className="text-lg leading-relaxed">
+                    Our mission is simple but powerful: create a world where <span className="font-bold text-primary">skill speaks louder than degrees</span>, where every talented individual gets a fair shot, and where startups can find the right people based on ability, not paperwork.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          
           {/* Bottom decoration */}
           <div className="mt-20 text-center">
-            <div className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-primary via-secondary to-accent text-white font-semibold shadow-xl animate-pulse">
+            <div className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-primary via-secondary to-accent text-white font-bold text-lg shadow-2xl animate-pulse">
               🚀 The Journey Continues...
             </div>
           </div>
