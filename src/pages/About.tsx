@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Target, Users, TrendingUp, Heart, Lightbulb, Shield, Mail, Github } from "lucide-react";
+import { Target, Users, TrendingUp, Heart, Lightbulb, Shield, Mail, Github, LucideIcon } from "lucide-react";
 
 const About = () => {
   const founders = [
@@ -34,31 +34,41 @@ const About = () => {
     }
   ];
 
-  const timeline = [
-    { year: "2023", event: "Met at MVM in 11th Grade", description: "Three students from different backgrounds crossed paths at MVM Chetpet during 11th grade", icon: Users, color: "from-blue-500 to-cyan-500" },
-    { year: "2024", event: "School Project Ideation", description: "Brainstormed and conceptualized Talentrove as our ambitious school project", icon: Lightbulb, color: "from-purple-500 to-pink-500" },
-    { year: "2025", event: "Prototype Development & Launch", description: "Built and launched our working prototype, turning our vision into reality", icon: Target, color: "from-orange-500 to-red-500" },
-    { year: "Future", event: "Scaling & Empowering Talents", description: "Growing the platform to connect thousands of talents with opportunities", icon: TrendingUp, color: "from-green-500 to-emerald-500" }
+  const timeline: Array<{
+    year: string;
+    event: string;
+    description: string;
+    Icon: LucideIcon;
+    color: string;
+  }> = [
+    { year: "2023", event: "Met at MVM in 11th Grade", description: "Three students from different backgrounds crossed paths at MVM Chetpet during 11th grade", Icon: Users, color: "from-blue-500 to-cyan-500" },
+    { year: "2024", event: "School Project Ideation", description: "Brainstormed and conceptualized Talentrove as our ambitious school project", Icon: Lightbulb, color: "from-purple-500 to-pink-500" },
+    { year: "2025", event: "Prototype Development & Launch", description: "Built and launched our working prototype, turning our vision into reality", Icon: Target, color: "from-orange-500 to-red-500" },
+    { year: "Future", event: "Scaling & Empowering Talents", description: "Growing the platform to connect thousands of talents with opportunities", Icon: TrendingUp, color: "from-green-500 to-emerald-500" }
   ];
 
-  const values = [
+  const values: Array<{
+    Icon: LucideIcon;
+    title: string;
+    description: string;
+  }> = [
     {
-      icon: Target,
+      Icon: Target,
       title: "Skill > Degree",
       description: "We believe real talent and practical skills matter more than certificates and traditional qualifications."
     },
     {
-      icon: Shield,
+      Icon: Shield,
       title: "Trust & Transparency",
       description: "Every talent is verified through TTET, every startup rated through TTP. Complete transparency for fair opportunities."
     },
     {
-      icon: Heart,
+      Icon: Heart,
       title: "Impact-Driven",
       description: "Our mission is to empower skilled individuals and help startups find genuine talent. Creating meaningful employment."
     },
     {
-      icon: TrendingUp,
+      Icon: TrendingUp,
       title: "Innovation",
       description: "Using AI-driven matchmaking to connect the right talent with the right opportunity, efficiently and fairly."
     }
@@ -199,7 +209,7 @@ const About = () => {
                       
                       {/* Main icon container */}
                       <div className={`relative w-16 h-16 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center shadow-2xl transform transition-all duration-300 hover:scale-110 hover:rotate-12`}>
-                        <item.icon className="w-8 h-8 text-white" />
+                        <item.Icon className="w-8 h-8 text-white" />
                       </div>
                     </div>
                   </div>
@@ -253,7 +263,7 @@ const About = () => {
             {values.map((value, index) => (
               <Card key={index} className="hover-lift">
                 <CardContent className="p-8">
-                  <value.icon className="w-12 h-12 text-primary mb-4" />
+                  <value.Icon className="w-12 h-12 text-primary mb-4" />
                   <h3 className="text-2xl font-bold mb-3">{value.title}</h3>
                   <p className="text-muted-foreground">{value.description}</p>
                 </CardContent>
