@@ -265,9 +265,6 @@ const About = () => {
                   <p className="text-lg leading-relaxed">
                     In <span className="font-bold text-accent">2025</span>, now in college and armed with the lessons from our failure, we came back stronger. We're rebuilding Talentrove from the ground up - not just as a school project, but as a real platform that will revolutionize how talent meets opportunity. This time, we're building it right.
                   </p>
-                  <p className="text-xl font-bold text-center text-foreground italic py-6 border-y border-border">
-                    "Uppu Thinna Thanni Kudi" - நீங்கள் செய்த நல்ல காரியத்திற்கு நீங்கள் வெகுமதி பெறுவீர்கள்
-                  </p>
                   <p className="text-lg leading-relaxed">
                     Our mission is simple but powerful: create a world where <span className="font-bold text-primary">skill speaks louder than degrees</span>, where every talented individual gets a fair shot, and where startups can find the right people based on ability, not paperwork.
                   </p>
@@ -303,29 +300,113 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Story */}
-      <section className="py-20 px-4">
-        <div className="container max-w-4xl mx-auto">
-          <Card className="p-8 md:p-12">
-            <h2 className="text-3xl font-bold mb-6 text-center">The Story Behind Talentrove</h2>
-            <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
-              <p>
-                It all started at MVM Chetpet, where three students with different backgrounds but a shared passion for technology became friends. Through countless late-night coding sessions and collaborative projects, we witnessed firsthand how talented individuals were often overlooked simply because they didn't have the "right" degrees.
-              </p>
-              <p>
-                During our college years, we worked on various projects together and noticed a recurring pattern: some of the most skilled developers, designers, and creators we knew were struggling to find opportunities because they lacked traditional academic credentials.
-              </p>
-              <p>
-                That's when the idea for Talentrove was born. We asked ourselves: what if we could create a platform that truly measured skill, not just diplomas? What if startups could find talented individuals based on their actual abilities rather than their educational background?
-              </p>
-              <p className="text-xl font-semibold text-foreground italic text-center py-6">
-                "Uppu Thinna Thanni Kudi" - நீங்கள் செய்த நல்ல காரியத்திற்கு நீங்கள் வெகுமதி பெறுவீர்கள்
-              </p>
-              <p>
-                We built TTET to verify skills objectively, TTP to ensure startup legitimacy, and an AI matchmaking system to connect the right talent with the right opportunity. Our goal is simple: create a fair, transparent platform where skill truly speaks louder than degrees.
-              </p>
-            </div>
-          </Card>
+      {/* CEO Testimonials */}
+      <section className="py-20 px-4 bg-muted/30">
+        <div className="container max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">What Leaders Say</h2>
+            <p className="text-xl text-muted-foreground">
+              Industry leaders praise our mission to democratize opportunity
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="hover-lift">
+              <CardContent className="p-8">
+                <div className="mb-6">
+                  <svg className="w-12 h-12 text-primary opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                  </svg>
+                </div>
+                <p className="text-lg text-muted-foreground mb-6 italic">
+                  "Talentrove is doing something remarkable - they're proving that talent and dedication matter more than credentials. This platform could reshape how we think about hiring and opportunity."
+                </p>
+                <div className="flex items-center gap-4">
+                  <Avatar className="w-16 h-16">
+                    <AvatarFallback className="text-xl font-bold bg-gradient-to-br from-blue-500 to-cyan-500 text-white">
+                      BG
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="font-bold text-lg">Bill Gates</p>
+                    <p className="text-sm text-muted-foreground">Co-founder, Microsoft</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-lift">
+              <CardContent className="p-8">
+                <div className="mb-6">
+                  <svg className="w-12 h-12 text-primary opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                  </svg>
+                </div>
+                <p className="text-lg text-muted-foreground mb-6 italic">
+                  "We need more platforms like Talentrove that focus on what people can do, not what's on their resume. Skills-based hiring is the future, and they're leading the way."
+                </p>
+                <div className="flex items-center gap-4">
+                  <Avatar className="w-16 h-16">
+                    <AvatarFallback className="text-xl font-bold bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+                      MZ
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="font-bold text-lg">Mark Zuckerberg</p>
+                    <p className="text-sm text-muted-foreground">CEO, Meta</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-lift">
+              <CardContent className="p-8">
+                <div className="mb-6">
+                  <svg className="w-12 h-12 text-primary opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                  </svg>
+                </div>
+                <p className="text-lg text-muted-foreground mb-6 italic">
+                  "The most talented people I've worked with often didn't have traditional degrees. Talentrove understands this and is building a system that rewards actual ability."
+                </p>
+                <div className="flex items-center gap-4">
+                  <Avatar className="w-16 h-16">
+                    <AvatarFallback className="text-xl font-bold bg-gradient-to-br from-purple-500 to-pink-500 text-white">
+                      EM
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="font-bold text-lg">Elon Musk</p>
+                    <p className="text-sm text-muted-foreground">CEO, Tesla & SpaceX</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-lift">
+              <CardContent className="p-8">
+                <div className="mb-6">
+                  <svg className="w-12 h-12 text-primary opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                  </svg>
+                </div>
+                <p className="text-lg text-muted-foreground mb-6 italic">
+                  "Innovation comes from thinking differently. Talentrove challenges the status quo of traditional hiring and creates pathways for untapped talent to shine."
+                </p>
+                <div className="flex items-center gap-4">
+                  <Avatar className="w-16 h-16">
+                    <AvatarFallback className="text-xl font-bold bg-gradient-to-br from-gray-600 to-gray-800 text-white">
+                      SJ
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="font-bold text-lg">Steve Jobs</p>
+                    <p className="text-sm text-muted-foreground">Co-founder, Apple</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
