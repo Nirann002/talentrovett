@@ -79,36 +79,57 @@ const About = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 gradient-hero">
-        <div className="container max-w-6xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Our <span className="text-primary">Story</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Three friends from MVM Chetpet with a shared vision: to create a world where skill speaks louder than degrees.
-          </p>
+      <section className="pt-32 pb-24 px-4 gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 pointer-events-none"></div>
+        <div className="container max-w-6xl mx-auto text-center relative z-10">
+          <div className="animate-fade-in">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              Our <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Story</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
+              Three friends from MVM Chetpet with a shared vision: to create a world where <span className="text-primary font-semibold">skill speaks louder than degrees</span>.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                <span>Founded in 2024</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-secondary animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                <span>Built by Students</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-accent animate-pulse" style={{ animationDelay: '1s' }}></div>
+                <span>Skill-First Platform</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 px-4">
+      <section className="py-24 px-4 bg-gradient-to-b from-background to-muted/20">
         <div className="container max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="hover-lift">
-              <CardContent className="p-8">
-                <Target className="w-12 h-12 text-primary mb-4" />
-                <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
-                <p className="text-lg text-muted-foreground">
+            <Card className="hover-lift group border-2 hover:border-primary/50 transition-all duration-500 bg-card/50 backdrop-blur-sm">
+              <CardContent className="p-10">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Target className="w-8 h-8 text-white" />
+                </div>
+                <h2 className="text-3xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">Our Mission</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
                   To empower skilled individuals who lack traditional degrees by connecting them with startups and businesses that value real talent, practical ability, and proven skills over paperwork.
                 </p>
               </CardContent>
             </Card>
             
-            <Card className="hover-lift">
-              <CardContent className="p-8">
-                <TrendingUp className="w-12 h-12 text-secondary mb-4" />
-                <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
-                <p className="text-lg text-muted-foreground">
+            <Card className="hover-lift group border-2 hover:border-secondary/50 transition-all duration-500 bg-card/50 backdrop-blur-sm">
+              <CardContent className="p-10">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary to-secondary/60 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <TrendingUp className="w-8 h-8 text-white" />
+                </div>
+                <h2 className="text-3xl font-bold mb-4 group-hover:text-secondary transition-colors duration-300">Our Vision</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
                   A world where talent, not academic credentials, defines your future. Where every skilled person gets a fair chance, and every startup finds the right fit.
                 </p>
               </CardContent>
@@ -118,10 +139,12 @@ const About = () => {
       </section>
 
       {/* Founders Section */}
-      <section className="py-20 px-4 bg-muted/30">
-        <div className="container max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Meet the Founders</h2>
+      <section className="py-24 px-4 bg-muted/30 relative overflow-hidden">
+        <div className="absolute top-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="container max-w-6xl mx-auto relative z-10">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Meet the <span className="text-primary">Founders</span></h2>
             <p className="text-xl text-muted-foreground">
               Three engineers united by a common goal: democratizing opportunity
             </p>
@@ -129,22 +152,26 @@ const About = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {founders.map((founder, index) => (
-              <Card key={index} className="hover-lift">
+              <Card key={index} className="hover-lift group border-2 hover:border-primary/30 transition-all duration-500 bg-card/80 backdrop-blur-sm">
                 <CardContent className="p-8 text-center">
-                  <Avatar className="w-24 h-24 mx-auto mb-4">
-                    <AvatarFallback className="text-2xl font-bold bg-gradient-primary text-white">
-                      {founder.initials}
-                    </AvatarFallback>
-                  </Avatar>
-                  <h3 className="text-2xl font-bold mb-1">{founder.name}</h3>
-                  <p className="text-primary font-semibold mb-2">{founder.role}</p>
-                  <p className="text-sm text-muted-foreground mb-4">{founder.education}</p>
-                  <p className="text-muted-foreground mb-6">{founder.bio}</p>
+                  <div className="relative inline-block mb-6">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full opacity-20 group-hover:opacity-40 blur-sm transition-opacity duration-300"></div>
+                    <Avatar className="w-28 h-28 relative border-4 border-background shadow-xl group-hover:scale-105 transition-transform duration-300">
+                      <AvatarFallback className="text-3xl font-bold bg-gradient-to-br from-primary to-secondary text-white">
+                        {founder.initials}
+                      </AvatarFallback>
+                    </Avatar>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">{founder.name}</h3>
+                  <p className="text-primary font-semibold mb-2 text-lg">{founder.role}</p>
+                  <p className="text-sm text-muted-foreground mb-4 font-medium">{founder.education}</p>
+                  <div className="h-1 w-16 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-6"></div>
+                  <p className="text-muted-foreground mb-8 leading-relaxed">{founder.bio}</p>
                   <div className="flex justify-center gap-3">
                     {founder.email && (
                       <a
                         href={`mailto:${founder.email}`}
-                        className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-smooth"
+                        className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/10 to-primary/5 hover:from-primary/20 hover:to-primary/10 flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-md hover:shadow-lg"
                         aria-label="Email"
                       >
                         <Mail className="w-5 h-5 text-primary" />
@@ -152,10 +179,10 @@ const About = () => {
                     )}
                     <a
                       href={founder.github}
-                      className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-smooth"
+                      className="w-12 h-12 rounded-full bg-gradient-to-br from-secondary/10 to-secondary/5 hover:from-secondary/20 hover:to-secondary/10 flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-md hover:shadow-lg"
                       aria-label="GitHub"
                     >
-                      <Github className="w-5 h-5 text-primary" />
+                      <Github className="w-5 h-5 text-secondary" />
                     </a>
                   </div>
                 </CardContent>
@@ -283,129 +310,29 @@ const About = () => {
       </section>
 
       {/* Core Values */}
-      <section className="py-20 px-4 gradient-hero">
-        <div className="container max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">Our Core Values</h2>
+      <section className="py-24 px-4 bg-gradient-to-br from-background via-muted/10 to-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="container max-w-6xl mx-auto relative z-10">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Our Core <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Values</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              The principles that guide everything we do
+            </p>
+          </div>
           <div className="grid md:grid-cols-2 gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="hover-lift">
-                <CardContent className="p-8">
-                  <value.Icon className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-2xl font-bold mb-3">{value.title}</h3>
-                  <p className="text-muted-foreground">{value.description}</p>
+              <Card key={index} className="hover-lift group border-2 hover:border-primary/30 transition-all duration-500 bg-card/60 backdrop-blur-sm">
+                <CardContent className="p-10">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 group-hover:from-primary/20 group-hover:to-secondary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300">
+                    <value.Icon className="w-8 h-8 text-primary group-hover:text-secondary transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">{value.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-lg">{value.description}</p>
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CEO Testimonials */}
-      <section className="py-20 px-4 bg-muted/30">
-        <div className="container max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">What Leaders Say</h2>
-            <p className="text-xl text-muted-foreground">
-              Industry leaders praise our mission to democratize opportunity
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="hover-lift">
-              <CardContent className="p-8">
-                <div className="mb-6">
-                  <svg className="w-12 h-12 text-primary opacity-50" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                  </svg>
-                </div>
-                <p className="text-lg text-muted-foreground mb-6 italic">
-                  "Talentrove is doing something remarkable - they're proving that talent and dedication matter more than credentials. This platform could reshape how we think about hiring and opportunity."
-                </p>
-                <div className="flex items-center gap-4">
-                  <Avatar className="w-16 h-16">
-                    <AvatarFallback className="text-xl font-bold bg-gradient-to-br from-blue-500 to-cyan-500 text-white">
-                      BG
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="font-bold text-lg">Bill Gates</p>
-                    <p className="text-sm text-muted-foreground">Co-founder, Microsoft</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover-lift">
-              <CardContent className="p-8">
-                <div className="mb-6">
-                  <svg className="w-12 h-12 text-primary opacity-50" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                  </svg>
-                </div>
-                <p className="text-lg text-muted-foreground mb-6 italic">
-                  "We need more platforms like Talentrove that focus on what people can do, not what's on their resume. Skills-based hiring is the future, and they're leading the way."
-                </p>
-                <div className="flex items-center gap-4">
-                  <Avatar className="w-16 h-16">
-                    <AvatarFallback className="text-xl font-bold bg-gradient-to-br from-blue-600 to-purple-600 text-white">
-                      MZ
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="font-bold text-lg">Mark Zuckerberg</p>
-                    <p className="text-sm text-muted-foreground">CEO, Meta</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover-lift">
-              <CardContent className="p-8">
-                <div className="mb-6">
-                  <svg className="w-12 h-12 text-primary opacity-50" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                  </svg>
-                </div>
-                <p className="text-lg text-muted-foreground mb-6 italic">
-                  "The most talented people I've worked with often didn't have traditional degrees. Talentrove understands this and is building a system that rewards actual ability."
-                </p>
-                <div className="flex items-center gap-4">
-                  <Avatar className="w-16 h-16">
-                    <AvatarFallback className="text-xl font-bold bg-gradient-to-br from-purple-500 to-pink-500 text-white">
-                      EM
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="font-bold text-lg">Elon Musk</p>
-                    <p className="text-sm text-muted-foreground">CEO, Tesla & SpaceX</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover-lift">
-              <CardContent className="p-8">
-                <div className="mb-6">
-                  <svg className="w-12 h-12 text-primary opacity-50" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                  </svg>
-                </div>
-                <p className="text-lg text-muted-foreground mb-6 italic">
-                  "Innovation comes from thinking differently. Talentrove challenges the status quo of traditional hiring and creates pathways for untapped talent to shine."
-                </p>
-                <div className="flex items-center gap-4">
-                  <Avatar className="w-16 h-16">
-                    <AvatarFallback className="text-xl font-bold bg-gradient-to-br from-gray-600 to-gray-800 text-white">
-                      SJ
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="font-bold text-lg">Steve Jobs</p>
-                    <p className="text-sm text-muted-foreground">Co-founder, Apple</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
